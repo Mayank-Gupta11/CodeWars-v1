@@ -2,8 +2,10 @@ from random import randint
 
 
 def ActRobot(robot):
-        if robot.investigate_up()==('enemy' or 'enemy-base'):
+        en=["enemy","enemy-base"]
+        if robot.investigate_up() or robot.investigate_down() or robot.investigate_left() or robot.investigate_right() or robot.investigate_nw() or robot.investigate_ne() or robot.investigate_sw() or robot.investigate_se() in en:
             robot.DeployVirus(robot.GetVirus())
+        '''
         elif robot.investigate_down()==('enemy' or 'enemy-base'):
             robot.DeployVirus(robot.GetVirus())
         elif robot.investigate_left()==('enemy' or 'enemy-base'):
@@ -22,13 +24,14 @@ def ActRobot(robot):
             
         elif robot.investigate_se()==('enemy' or 'enemy-base'):
             robot.DeployVirus(robot.GetVirus())
-
+'''
         if robot.GetVirus() > 600:
             t1=robot.GetPosition()
             x,y=t1
             
-            if robot.investigate_up()==('enemy' or 'enemy-base'):
+            if robot.investigate_up() or robot.investigate_down() or robot.investigate_left() or robot.investigate_right() or robot.investigate_nw() or robot.investigate_ne() or robot.investigate_sw() or robot.investigate_se() in en:
                 robot.DeployVirus(200)
+                '''
             elif robot.investigate_down()==('enemy' or 'enemy-base'):
                 robot.DeployVirus(200)
             elif robot.investigate_left()==('enemy' or 'enemy-base'):
@@ -48,7 +51,7 @@ def ActRobot(robot):
             elif robot.investigate_se()==('enemy' or 'enemy-base'):
                 robot.DeployVirus(200)
             
-            
+            '''
             elif x>=20:
                 robot.DeployVirus(200)
             else:
